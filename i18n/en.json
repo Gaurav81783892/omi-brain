@@ -1,1 +1,11 @@
+{
+  "title": "OMI-BRAIN",
+  "symptomTitle": "Describe Symptoms",
+  "placeholder": "Example: Fever, headache, nausea...",
+  "analyze": "Analyze with OMI-Brain",
+  "resultTitle": "AI Medical Insight",
+  "risk": "Risk Level",
+  "conditions": "Possible Conditions",
+  "warning": "This is not a medical diagnosis. Consult a licensed doctor."
+}
 
