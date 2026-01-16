@@ -6,35 +6,68 @@ import { generateExplanation } from "./brain/explanationEngine.js";
 import { analyzeImage } from "./brain/imageInsightEngine.js";
 import { showDisclaimer } from "./ethics/disclaimer.js";
 
-const analyzeBtn = document.getElementById("analyzeBtn");
-const resultBox = document.getElementById("resultBox");
-
 analyzeBtn.addEventListener("click", () => {
   showDisclaimer();
 
-  const symptoms = document.getElementById("symptomInput").value;
-  const image = document.getElementById("imageInput").files[0];
+  const symptomText = document.getElementById("symptomInput").value;
+  const imageFile = document.getElementById("imageInput").files[0];
 
-  if (!symptoms && !image) {
+  if (!symptomText && !imageFile) {
     alert("Please enter symptoms or upload an image.");
     return;
   }
 
-  // TEMP MOCK (Real AI brain next phase)
-  const risk = "MODERATE";
-  const conditions = ["Viral Infection", "Migraine", "Dehydration"];
+  // 🧠 STEP 1: Parse symptoms
+  const parsedSymptoms = parseSymptoms(symptomText);
 
+  // 🧠 STEP 2: Detect risk
+  const risk = detectRisk(parsedSymptoms);
+
+  // 🧠 STEP 3: Medical knowledge base (expandable)
+  const medicalDB = [
+    {
+      name: "Viral Infection",
+      symptoms: ["fever", "cough", "fatigue"],
+      weight: 2
+    },
+    {
+      name: "Migraine",
+      symptoms: ["headache", "nausea"],
+      weight: 1
+    },
+    {
+      name: "Dehydration",
+      symptoms: ["dizziness", "weakness"],
+      weight: 1
+    }
+  ];
+
+  // 🧠 STEP 4: Evidence scoring
+  const evidenceScores = scoreEvidence(parsedSymptoms, medicalDB);
+
+  // 🧠 STEP 5: Differential analysis
+  const conditions = differentialAnalysis(evidenceScores);
+
+  // 🧠 STEP 6: Image insight (optional)
+  const imageInsight = analyzeImage(imageFile);
+
+  // 🧠 STEP 7: Explanation
+  const explanationText = generateExplanation(conditions, risk);
+
+  // 🧾 OUTPUT UI
   document.getElementById("riskLevel").innerHTML =
     `<strong>Risk Level:</strong> ${risk}`;
 
   document.getElementById("possibleConditions").innerHTML =
     `<strong>Possible Conditions:</strong><ul>` +
-    conditions.map(c => `<li>${c}</li>`).join("") +
+    conditions.map(c =>
+      `<li>${c.condition} (confidence: ${c.confidence})</li>`
+    ).join("") +
     `</ul>`;
 
   document.getElementById("explanation").innerHTML =
-    "Based on the provided information, OMI-Brain suggests further medical consultation.";
+    explanationText +
+    (imageInsight ? `<br/><em>${imageInsight.note}</em>` : "");
 
   resultBox.classList.remove("hidden");
 });
-
