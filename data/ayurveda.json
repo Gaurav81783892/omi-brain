@@ -1,1 +1,18 @@
+[
+  {
+    "dosha": "Vata",
+    "symptoms": ["dryness", "anxiety", "constipation", "headache"],
+    "guidance": "Warm food, proper rest, oil massage recommended."
+  },
+  {
+    "dosha": "Pitta",
+    "symptoms": ["fever", "inflammation", "anger", "acid"],
+    "guidance": "Cooling diet, avoid spicy food."
+  },
+  {
+    "dosha": "Kapha",
+    "symptoms": ["fatigue", "weight", "cold", "cough"],
+    "guidance": "Light food, regular exercise."
+  }
+]
 
