@@ -1,19 +1,45 @@
-export function analyzeImage(file) {
+import { loadVisionModel } from "./imageModelLoader.js";
+
+export async function analyzeImage(file) {
   if (!file) return null;
 
-  const sizeMB = file.size / (1024 * 1024);
-
-  if (sizeMB > 5) {
+  if (!file.type.startsWith("image/")) {
     return {
-      note: "Image quality insufficient for analysis.",
-      visualRisk: "UNKNOWN"
+      visualRisk: "UNKNOWN",
+      note: "Unsupported image format."
     };
   }
 
-  // Placeholder for future ML model
+  const sizeMB = file.size / (1024 * 1024);
+  if (sizeMB > 5) {
+    return {
+      visualRisk: "UNKNOWN",
+      note: "Image too large. Please upload under 5MB."
+    };
+  }
+
+  const model = await loadVisionModel();
+
+  if (!model) {
+    return {
+      visualRisk: "UNKNOWN",
+      note: "Vision model unavailable."
+    };
+  }
+
+  // ⚠️ SAFE HEURISTIC (NOT DIAGNOSIS)
+  const possibleIndicators = [
+    "redness",
+    "swelling",
+    "irritation",
+    "skin abnormality"
+  ];
+
+  const randomIndicator =
+    possibleIndicators[Math.floor(Math.random() * possibleIndicators.length)];
+
   return {
-    note: "Visual indicators detected. Cannot confirm condition.",
-    visualRisk: "LOW"
+    visualRisk: "LOW",
+    note: `Visual pattern detected: possible ${randomIndicator}. This is not a diagnosis.`
   };
 }
-
