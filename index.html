@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OMI-Brain | Medical Intelligence Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="top-bar">
+  <h1>🧠 OMI-BRAIN</h1>
+  <select id="languageSelector">
+    <option value="en">English</option>
+    <option value="hi">हिंदी</option>
+    <option value="es">Español</option>
+    <option value="ar">العربية</option>
+  </select>
+</header>
+
+<main class="container">
+
+  <section class="input-card">
+    <h2 id="symptomTitle">Describe Symptoms</h2>
+
+    <textarea id="symptomInput"
+      placeholder="Example: Fever, chest pain, headache, nausea..."></textarea>
+
+    <input type="file" id="imageInput" accept="image/*"/>
+
+    <button id="analyzeBtn">Analyze with OMI-Brain</button>
+  </section>
+
+  <section class="result-card hidden" id="resultBox">
+    <h2 id="resultTitle">AI Medical Insight</h2>
+
+    <div id="riskLevel"></div>
+    <div id="possibleConditions"></div>
+    <div id="explanation"></div>
+
+    <div class="warning">
+      ⚠️ This is not a medical diagnosis. Consult a licensed doctor.
+    </div>
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
 
