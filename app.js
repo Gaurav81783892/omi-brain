@@ -1,3 +1,9 @@
+import { parseSymptoms } from "./brain/symptomParser.js";
+import { scoreEvidence } from "./brain/evidenceScorer.js";
+import { differentialAnalysis } from "./brain/differentialEngine.js";
+import { detectRisk } from "./brain/riskDetector.js";
+import { generateExplanation } from "./brain/explanationEngine.js";
+import { analyzeImage } from "./brain/imageInsightEngine.js";
 import { showDisclaimer } from "./ethics/disclaimer.js";
 
 const analyzeBtn = document.getElementById("analyzeBtn");
