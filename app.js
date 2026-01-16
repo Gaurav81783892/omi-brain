@@ -110,7 +110,8 @@ analyzeBtn.addEventListener("click", async () => {
   }
 
   /* STEP 7: Image insight */
-  const imageInsight = analyzeImage(imageFile);
+  const imageInsight = await analyzeImage(imageFile);
+
 
   /* STEP 8: Explanation */
   const explanationText = generateExplanation(conditions, risk);
