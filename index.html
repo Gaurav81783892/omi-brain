@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>OMI-Brain | Medical Intelligence Assistant</title>
+  <title>OMI-BRAIN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <header class="top-bar">
-  <h1>🧠 OMI-BRAIN</h1>
+  <h1>OMI-BRAIN</h1>
+
   <select id="languageSelector">
     <option value="en">English</option>
     <option value="hi">हिंदी</option>
@@ -21,31 +22,32 @@
 <main class="container">
 
   <section class="input-card">
-    <h2 id="symptomTitle">Describe Symptoms</h2>
+    <h2 id="symptomTitle"></h2>
 
-    <textarea id="symptomInput"
-      placeholder="Example: Fever, chest pain, headache, nausea..."></textarea>
+    <textarea id="symptomInput"></textarea>
 
-    <input type="file" id="imageInput" accept="image/*"/>
+    <input type="file" id="imageInput" accept="image/*" />
 
-    <button id="analyzeBtn">Analyze with OMI-Brain</button>
+    <button id="analyzeBtn"></button>
   </section>
 
   <section class="result-card hidden" id="resultBox">
-    <h2 id="resultTitle">AI Medical Insight</h2>
+    <h2 id="resultTitle"></h2>
 
     <div id="riskLevel"></div>
     <div id="possibleConditions"></div>
     <div id="explanation"></div>
 
-    <div class="warning">
-      ⚠️ This is not a medical diagnosis. Consult a licensed doctor.
+    <div class="warning" id="warningText"></div>
+
+    <div id="proBanner" class="pro-banner hidden">
+      🔓 Unlock OMI-BRAIN PRO  
+      <button id="upgradeBtn">Upgrade</button>
     </div>
   </section>
 
 </main>
 
-<script src="app.js"></script>
+<script type="module" src="app.js"></script>
 </body>
 </html>
-
