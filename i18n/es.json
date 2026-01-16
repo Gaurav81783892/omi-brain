@@ -1,1 +1,11 @@
+{
+  "title": "OMI-CEREBRO",
+  "symptomTitle": "Describa los síntomas",
+  "placeholder": "Ejemplo: fiebre, dolor de cabeza...",
+  "analyze": "Analizar con OMI",
+  "resultTitle": "Información médica AI",
+  "risk": "Nivel de riesgo",
+  "conditions": "Condiciones posibles",
+  "warning": "Esto no es un diagnóstico médico."
+}
 
