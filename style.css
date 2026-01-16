@@ -1,1 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #0b0f19;
+  color: #eaeaea;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: #11162a;
+  border-bottom: 1px solid #1f2545;
+}
+
+.top-bar h1 {
+  color: #4fd1c5;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.input-card, .result-card {
+  background: #12182b;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  margin-top: 10px;
+  padding: 12px;
+  background: #0b1020;
+  border: 1px solid #2a2f55;
+  color: white;
+  border-radius: 8px;
+}
+
+input[type="file"] {
+  margin-top: 12px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #4fd1c5, #38b2ac);
+  border: none;
+  color: black;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.hidden {
+  display: none;
+}
+
+.warning {
+  margin-top: 15px;
+  color: #ffcc00;
+  font-size: 0.9em;
+}
 
